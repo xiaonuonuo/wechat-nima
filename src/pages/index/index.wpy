@@ -1,0 +1,241 @@
+<!--suppress CssInvalidPropertyValue -->
+<template>
+    <view class="mod_header">
+        <view class="music_logo_img">
+          <image mode={{mode}} src="https://y.gtimg.cn/mediastyle/mobile/yqq_v5/img/logo.png?max_age=19830212&d=20151105145423"></image>
+        </view>
+    </view>
+    <view class="mod_container">
+        <view class="mod_nav">
+            <block wx:for="{{nav.txt}}" wx:key="nav.txt">
+                <view class="nav {{tabIndex == index?'current':''}}" hover-class="none" bindtap="changeTab({{index}})">{{item}}</view>
+            </block>
+        </view>
+
+        <view class="mod_wrap {{tabIndex == 0?'':'none'}}">
+            <view class="mod_swiper">
+                <swiper indicator-dots="{{indicatorDots}}"
+                        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-active-color="{{indicatorActiveColor}}">
+                    <block wx:for="{{imgUrls}}" wx:key="imgUrls">
+                        <swiper-item>
+                            <image src="{{item}}" class="slide-image" mode="widthFix"/>
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <!--<button bindtap="changeIndicatorDots"> indicator-dots </button>-->
+                <!--<button bindtap="changeAutoplay"> autoplay </button>-->
+                <!--<slider bindchange="intervalChange" show-value min="500" max="2000"/> interval-->
+                <!--<slider bindchange="durationChange" show-value min="1000" max="10000"/> duration-->
+            </view>
+            <view class="mod_list list_normal">
+                <text class="list_title">电台</text>
+                <view class="list_container">
+                    <navigator class="re_com_radio" hover-class="none" url="">
+                        <view class="list_media">
+                            <image src="https://y.gtimg.cn/music/photo/radio/track_radio_199_13_1.jpg?max_age=2592000" class="list_pic" mode="widthFix"/>
+                            <icon class="play_icon"></icon>
+                        </view>
+                        <text class="list_txt">热歌</text>
+                    </navigator>
+                    <navigator class="re_com_radio" hover-class="none" url="">
+                        <view class="list_media">
+                            <image src="https://y.gtimg.cn/music/photo/radio/track_radio_199_13_1.jpg?max_age=2592000" class="list_pic" mode="widthFix"/>
+                            <icon class="play_icon"></icon>
+                        </view>
+                        <text class="list_txt">热歌</text>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="mod_wrap {{tabIndex == 1?'':'none'}}">
+            <List></List>
+        </view>
+        <view class="mod_wrap {{tabIndex == 2?'':'none'}}">
+            <Search></Search>
+        </view>
+    </view>
+
+</template>
+<script>
+    import wepy from 'wepy'
+    import List from './list'
+    import Search from './search'
+
+    export default class Index extends wepy.page {
+        config = {
+            navigationBarTitleText: 'QQ音乐'
+        };
+        components = {
+            List,
+            Search
+        };
+        data = {
+            mode: 'aspectFit',
+            text: 'scaleToFill：不保持纵横比缩放图片，使图片完全适应',
+            imgUrls: [
+                'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+                'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+                'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+            ],
+            indicatorDots: true,
+            autoplay: true,
+            circular: true,
+            indicatorActiveColor: '#fff',
+            interval: 5000,
+            duration: 1000,
+            picSize: {
+                'width': 320,
+                'height': 320
+            },
+            nav: {
+                txt: ['推荐', '排行榜', '搜索']
+            },
+            tabIndex: 0
+        };
+        methods = {
+            changeIndicatorDots: function(e) {
+                this.indicatorDots = !this.data.indicatorDots
+            },
+            changeAutoplay: function(e) {
+                this.autoplay = !this.data.autoplay
+            },
+            intervalChange: function(e) {
+                this.nterval = e.detail.value
+            },
+            durationChange: function(e) {
+                this.duration = e.detail.value
+            },
+            changeTab(index) {
+                this.tabIndex = index
+            }
+        };
+    }
+</script>
+<style lang="less">
+    page {
+        display: block;
+        min-height: 100%;
+        background-color: #FFFFFF;
+    }
+    .none {
+        display: none;
+    }
+    .mod_header {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 44px;
+        background-color: #31c27c;
+        .music_logo_img {
+            flex: 1;
+            margin-left: 10px;
+            image {
+                width: 90px;
+                height: 25px;
+                text-indent: -9999px;
+            }
+        }
+    }
+
+    .mod_container {
+        .mod_nav {
+            display: -webkit-box;
+            flex-direction: row;
+            justify-content: space-around;
+            position: relative;
+            .nav {
+                -webkit-box-flex: 1;
+                height: 40*30/14rpx;
+                line-height: 40*30/14rpx;
+                text-align: center;
+                color: rgba(0,0,0,.6);
+                background-color: #FFFFFF;
+                font-size: 14*30/14rpx;
+                overflow: hidden;
+                box-sizing: border-box;
+            }
+            .current {
+                position: relative;
+                color: #31c27c;
+                &:after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 2px;
+                    background: #31c27c;
+                }
+            }
+        }
+        .mod_swiper {
+            margin-bottom: 10px;
+            .slide-image {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .mod_list {
+
+            .list_title {
+                display: block;
+                margin-bottom: 10px;
+                padding-left: 10px;
+                font-size: 14*30/14rpx;
+                overflow: hidden;
+            }
+            .list_container {
+                padding-left: 10px;
+                overflow: hidden;
+                .re_com_radio {
+                    float: left;
+                    width: 50%;
+                    padding-right: 10px;
+                    position: relative;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    .list_media {
+                        display: block;
+                        position: relative;
+                        &::before {
+                            content:"";
+                            display: block;
+                            padding-top: 100%;
+                        }
+                        .list_pic {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            display: block;
+                            z-index: 1;
+                        }
+                        .play_icon {
+                            position: absolute;
+                            bottom: 5%;
+                            right: 5%;
+                            width: 24px;
+                            height: 24px;
+                            z-index: 2;
+                            background-position: 0 0;
+                            background-image: url(https://y.gtimg.cn/mediastyle/mobile/yqq_v5/img/list_sprite.png?max_age=19830212&d=20151105145423);
+                            background-repeat: no-repeat;
+                            background-size: 24px 60px;
+                        }
+                    }
+                    .list_txt {
+                        display: block;
+                        height: 36px;
+                        line-height: 18px;
+                        white-space: normal;
+                        word-wrap: break-word;
+                        font-size: 14*30/14rpx;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+</style>

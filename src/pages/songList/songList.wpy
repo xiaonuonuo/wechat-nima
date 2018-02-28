@@ -1,0 +1,53 @@
+<template>
+    <view class="js_wrap">
+        <songListCover></songListCover>
+    </view>
+    <view class="wrap">
+        <view class="mod_wrap">
+            <musicList></musicList>
+            <songComment></songComment>
+        </view>
+    </view>
+
+</template>
+<script>
+    import wepy from 'wepy'
+    import songListCover from './songListCover'
+    import musicList from './musicList'
+    import songComment from './songComment'
+
+    export default class songList extends wepy.page {
+        config = {
+            navigationBarTitleText: '歌单列表'
+        }
+        components = {
+            songListCover,
+            musicList,
+            songComment
+        }
+    }
+</script>
+<style lang="less">
+    .js_wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 3;
+        overflow: hidden;
+    }
+    .wrap {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        padding-bottom: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        .mod_wrap {
+            padding-top: 477rpx;
+        }
+    }
+</style>

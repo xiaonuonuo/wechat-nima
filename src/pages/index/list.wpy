@@ -1,0 +1,126 @@
+<template>
+    <view class="toplist_wrap">
+        <view class="topic_item">
+            <navigator class="topic_main">
+                <view class="topic_media">
+                    <image src="https://y.gtimg.cn/music/common/upload/iphone_order_channel/toplist_4_300_213085460.jpg?max_age=2592000"></image>
+                    <view class="listen_count">
+                        <icon class="icon icon_listen" size="20"></icon>
+                        <text>1980.0万</text>
+                    </view>
+                </view>
+                <view class="topic_info">
+                    <view class="topic_tit">
+                        <text class="">安利XS·巅峰榜·流行指数</text>
+                    </view>
+
+                    <view class="topic_song_item">
+                        <text class="topic_song_name"><text class="topic_song_noun">1</text>说散就散</text>
+                        <text class="topic_song_singer">- 袁娅维</text>
+                    </view>
+                    <icon class="topic_arrow"></icon>
+                </view>
+            </navigator>
+
+        </view>
+        <view class="topic_more">
+            <navigator>
+                <text class="">去客户端发现更多好音乐</text>
+            </navigator>
+        </view>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy'
+
+    export default class List extends wepy.page {
+        config = {}
+    }
+</script>
+<style lang="less">
+    .mod_wrap {
+        position: relative;
+    }
+    .toplist_wrap {
+        padding: 10px;
+        background: #FFFFFF;
+        .topic_main {
+            -webkit-box-flex: 1;
+            display: -webkit-box;
+            -webkit-box-align: start;
+            -webkit-box-pack: start;
+            overflow: hidden;
+            background-color: #fff;
+            position: relative;
+            .topic_media {
+                /*float: left;*/
+                /*width: 100px;*/
+                /*height: 100px;*/
+                /*-webkit-box-flex: 1;*/
+                height: 100px;
+                position: relative;
+                image {
+                    width: 100px;
+                    height: 100px;
+                }
+                .listen_count {
+                    position: absolute;
+                    left: 50%;
+                    bottom: 9%;
+                    transform: translateX(-50%);
+                    color: #ffffff;
+                    font-size: 9px;
+                }
+            }
+            .topic_info {
+                -webkit-box-flex: 1;
+                margin: 0 10px 0 15px;
+                .topic_tit {
+                    padding-bottom: 10px;
+                    overflow: hidden;
+                    text {
+                        font-size: 14*30/14rpx;
+                    }
+                }
+                .topic_song_item {
+                    display: block;
+                    font-size: 12*30/14rpx;
+                    overflow: hidden;
+                    .topic_song_name {
+                        float: left;
+
+                        .topic_song_noun {
+                            margin-right: 10px;
+                            color: rgba(0,0,0,.5);
+                        }
+                    }
+                    .topic_song_singer {
+                        margin-left: 5px;
+                        color: rgba(0,0,0,.5);
+                    }
+                }
+                .topic_arrow {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    -webkit-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                    width: 6px;
+                    height: 6px;
+                    border-right: 1px solid #b2b2b2;
+                    border-bottom: 1px solid #b2b2b2;
+                    -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        .topic_more {
+            height: 50*30/14rpx;
+            line-height: 50*30/14rpx;
+            text-align: center;
+            text {
+                font-size: 14*30/14rpx;
+            }
+        }
+    }
+</style>

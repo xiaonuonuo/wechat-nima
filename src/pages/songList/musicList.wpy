@@ -1,0 +1,91 @@
+<template>
+    <view class="count_box">
+        <text>专辑</text>
+        <text class="count_box_number">共1首</text>
+    </view>
+    <view class="qui_list">
+        <view class="qui_list_item  js_play_song">
+            <text class="qui_list_order">1</text>
+            <view class="qui_list_bd">
+                <text class="qui_list_tit">Just Like This</text>
+                <text class="qui_list_desc">Deepmaniak</text>
+            </view>
+        </view>
+    </view>
+    <view class="qui_tit">
+        <text class="qui_tit_text">专辑简介</text>
+        <view class="qui_intro">
+            <text>《普通Disco》歌曲是由言和，洛天依“合唱”的一首音乐作品。是一首很普通的歌。歌词里说的那个普通的人，戴上耳机就会发疯的家伙就是我们啊,然后咱们来普通地动次打次吧!</text>
+            <text>本曲是Vocaloid中文曲中点击量最高的曲目；普通disco达成传说总耗时为14日13时49分，若仅以播放量为计算标准的话，本曲是所有Vocaloid曲目中最快达到“传说”的曲目;本曲是中文Vocaloid原创及翻唱曲中评分、评论两项数据最高的曲目。</text>
+            <navigator>展开</navigator>
+        </view>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy'
+
+    export default class musicList extends wepy.page {
+        config = {}
+    }
+</script>
+<style lang="less" scoped>
+    .count_box {
+        padding: 16*30/14rpx 16*30/14rpx 0;
+        text {
+            color: #777;
+            font-size: 13*30/14rpx;
+            &.count_box_number {
+                margin-left: 10px;
+            }
+        }
+    }
+    .qui_list {
+        padding: 20*30/14rpx 20*30/14rpx 0;
+        .qui_list_item {
+            display: flex;
+            flex-direction: row;
+            .qui_list_order {
+                margin-right: 20*30/14rpx;
+                color: #777777;
+            }
+            .qui_list_bd {
+                display: flex;
+                flex-direction: column;
+                .qui_list_tit {
+                    font-size: 14*30/14rpx;
+                    color: #000;
+                }
+                .qui_list_desc {
+                    font-size: 12*30/14rpx;
+                    color: #777777;
+                }
+            }
+
+        }
+    }
+    .qui_tit {
+        overflow: hidden;
+        .qui_tit_text {
+            display: block;
+            text-align: center;
+            height: 50*30/14rpx;
+            line-height: 55*30/14rpx;
+            white-space: nowrap;
+            letter-spacing: 5px;
+            font-weight: 300;
+            font-size: 18*30/14rpx;
+            color: #000000;
+        }
+        .qui_intro {
+            position: relative;
+            max-height: 84px;
+            padding: 0 20*30/14rpx;
+            text {
+                display: block;
+                color: #777777;
+                font-size: 14*30/14rpx;
+
+            }
+        }
+    }
+</style>

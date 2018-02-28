@@ -1,0 +1,217 @@
+<template>
+    <view class="cmt_info js_cmt_info">
+        <text class="qui_tit_text">精彩评论</text>
+        <view class="js_cmt cmt_content">
+            <view class="comment_list_item js_cmt_item">
+                <view class="js_cmt_click js_cmt_profile comment_list_avatar">
+                    <image class="comment_list_avatar_img" src="http://wx.qlogo.cn/mmhead/5cJ329xUeTz4qnAC5Qza2IovOqdUmoxEAKEENb0W027StrPsapIMOQ/0" mode="widthFix"></image>
+                </view>
+                <view class="comment_list_body c_bor1 js_cmt_body">
+                    <view class="comment_list_wrap">
+                        <view class="comment_list_heading">
+                            <text class="js_cmt_click comment_list_name js_cmt_openprofile c_txt1 c_txt2">雨竹</text>
+                            <text class="comment_list_time c_txt1 c_txt2">2016-02-22 11:58</text>
+                        </view>
+                        <view class="mod_comment_opt js_cmt_click js_cmt_praise">
+                            <text class="praise_number js_cmt_parise_num">101</text>
+                            <icon class="praise_icon"></icon>
+                        </view>
+                    </view>
+                    <text class="comment_list_para c_txt1">我来抢沙发啦！大家快来听这首歌很好听！我很喜欢洛天依所有作品！</text>
+                    <view class="comment_list_cont comment_list_cont_quote js_cmt_click js_cmt_action">
+                        <text class="js_cmt_click js_cmt_profile c_txt3">@胡大仙 :</text>
+                        <text class="c_txt1 c_txt2">总有人说这个是原唱。花瞳2015发行的，这个2016发行的。你跟我说这是原唱？？</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="qui_tit">
+        <text class="qui_tit_text">该歌手的其他专辑</text>
+        <view class="qui_equal_col">
+            <view class="qui_equal_col_item">
+                <image src="https://y.gtimg.cn/music/photo_new/T002R150x150M000000n6axx3u7AzX.jpg?max_age=2592000" mode="widthFix" class="qui_equal_col_img"></image>
+                <text class="qui_equal_col_tit">你的世界</text>
+                <text class="qui_equal_col_desc">2018-3-3</text>
+            </view>
+            <view class="qui_equal_col_item">
+                <image src="https://y.gtimg.cn/music/photo_new/T002R150x150M000000n6axx3u7AzX.jpg?max_age=2592000" mode="widthFix" class="qui_equal_col_img js_img_lazyload"></image>
+                <text class="qui_equal_col_tit">你的世界</text>
+                <text class="qui_equal_col_desc">2018-3-3</text>
+            </view>
+            <view class="qui_equal_col_item">
+                <image src="https://y.gtimg.cn/music/photo_new/T002R150x150M000000n6axx3u7AzX.jpg?max_age=2592000" mode="widthFix" class="qui_equal_col_img js_img_lazyload"></image>
+                <text class="qui_equal_col_tit">你的世界</text>
+                <text class="qui_equal_col_desc">2018-3-3</text>
+            </view>
+        </view>
+    </view>
+    <view class="brand">
+        <image src="//y.gtimg.cn/mediastyle/mod/mobile/img/logo.svg?max_age=2592000" mode="widthFix"></image>
+    </view>
+</template>
+<script>
+    import wepy from 'wepy'
+    export default class songComment extends wepy.page {
+        config = {}
+    }
+</script>
+<style lang="less" scoped>
+    @base: #777777;
+    @deep: #0000000;
+    @theme: #31c27c;
+
+    .cmt_info {
+        .qui_tit_text {
+            display: block;
+            text-align: center;
+            height: 50*30/14rpx;
+            line-height: 55*30/14rpx;
+            white-space: nowrap;
+            letter-spacing: 5px;
+            font-weight: 300;
+            font-size: 18*30/14rpx;
+            color: #000000;
+        }
+        .cmt_content {
+            padding-left: 0 20*30/14rpx;
+            .comment_list_item {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .comment_list_avatar {
+                    width: 100*30/14rpx;
+                    height: 100*30/14rpx;
+                    margin-right: 10*30/14rpx;
+                    /*border-radius: 100%;*/
+                    /*background: rgba(203,203,203,.2);*/
+                    image {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 100%;
+                        object-fit: cover;
+                        pointer-events: none;
+                    }
+                }
+                .comment_list_body {
+                    display: flex;
+                    flex-direction: column;
+                    padding-right: 20*30/14rpx;
+                    padding-bottom: 10*30/14rpx;
+                    border-bottom: 1px solid rgba(0,0,0,.05);
+                    .comment_list_wrap {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        .comment_list_heading {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            .comment_list_name {
+                                color: @base;
+                                font-size: 14*30/14rpx;
+                            }
+                            .comment_list_time {
+                                color: @base;
+                                font-size: 12*30/14rpx;
+                            }
+                        }
+                        .mod_comment_opt {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: flex-end;
+                            .praise_number {
+                                color: @base;
+                                font-size: 12*30/14rpx;
+                            }
+                            .praise_icon {
+                                width: 18*30/14rpx;
+                                height: 18*30/14rpx;
+                                background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACGklEQVRYR+1WwXHbMBBc4EF9nQ6cCixXYKWCJBWE/OiEl5MKYlcQ50VBHykVRB3YrsByBbYriN564DLHAWSIpoYSE8GTmdyMPhSJW9zt3q3CK4d65fz4twFYay8AnAM4AjDPsqwoimK5T1U7V8Ba+xnANwBPzLxUSp0AWBDRaSoANwCOsyzry62ttTMAn5RSp8PhcLEriD+pAAO4JaKBJCvLcqC1vgbwhYiukgOYTqdHq9XqF4BLIhJu7BSdKmCt/QDgZz2ZtVaqkgSA9P/MOffWGPMoV51MJn1mvjt4C8qyzLXWUwA/iCgPdQ6qcM69M8YIwJ1irxbE0gvsjwBUVSGivc5sfdmT6z0z50qpATPfa63zWGplWR5rrR9arrxgZvldhrbJ+2sAPpHIqO8PqsjkiVU9YubvvV7voj7tPACZA20hZz/Ew2oNINLxE4BH59zMGDPzAG6dc3mMvC1T0/8RUT8S0XyjAhGADRl1kdY2cFGr1jmaKnBIAJWCYqUkBTAej6+UUudZlr0JPEoNoFpSo9EoEP1ZBYED9UHyNzngz9oYYC8qcCgA0QULUVcgajIA3j19rfuFlABkVPeJSOzbOlICEK8olq0yMElbEE3AF14hSQXCCm9a1UkABMPatKqbBpGszKVfmzeiXWYW11M5ny4ha3ybVauvY9lQZz5J5W7jddwlufgHpdR8m1FtNSRdku7zzX8AvwFnBawwszZY+QAAAABJRU5ErkJggg==) no-repeat center;
+                                background-size: contain;
+                            }
+                        }
+                    }
+                    .comment_list_para {
+                        margin: 5*30/14rpx 0 10*30/14rpx;
+                        color: @deep;
+                        font-size: 14*30/14rpx;
+                        line-height: 26*30/14rpx;
+                        font-weight: 300;
+                    }
+                    .comment_list_cont {
+                        text {
+                            font-weight: 300;
+                            line-height: 24*30/14rpx;
+                        }
+                        .c_txt3 {
+                            margin-right: 5px;
+                            color: @theme;
+                        }
+                        .c_txt2 {
+                            color: @base;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .qui_tit {
+
+        .qui_tit_text {
+            display: block;
+            text-align: center;
+            height: 50*30/14rpx;
+            line-height: 55*30/14rpx;
+            white-space: nowrap;
+            letter-spacing: 5px;
+            font-weight: 300;
+            font-size: 18*30/14rpx;
+            color: #000000;
+        }
+        .qui_equal_col {
+            display: flex;
+            .qui_equal_col_item {
+                display: flex;
+                flex:1;
+                flex-direction: column;
+                justify-content: flex-start;
+                margin: 0 1px;
+                .qui_equal_col_img {
+                    width: 100%;
+                }
+                .qui_equal_col_tit {
+                    margin: 5px 8px 0;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    color: @base;
+                    font-size: 12*30/14rpx;
+                }
+                .qui_equal_col_desc {
+                    margin: 0 8px;
+                    color: @base;
+                    font-size: 12*30/14rpx;
+                }
+                text {
+                    flex: 1;
+
+                }
+            }
+        }
+    }
+    .brand {
+        display: flex;
+        height: 100*30/14rpx;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        image {
+            width: 40*30/14rpx;
+            height: 40*30/14rpx;
+        }
+    }
+</style>
