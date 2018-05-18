@@ -1,4 +1,5 @@
-<template>
+<!-- 歌单列表头 -->
+<template xmlns="">
     <view class="info_box">
         <view class="info_box_bd">
             <view class="album">
@@ -28,13 +29,30 @@
 <script>
     import wepy from 'wepy'
 
-    export default class songListCover extends wepy.page {
+    export default class songListCover extends wepy.component {
         config = {}
+        data = {
+            songListScrollTop: ''
+        }
+        events = {}
+        onLoad() {
+
+        }
+        onShow() {
+
+        }
     }
 </script>
 <style lang="less">
     .info_box {
         position: relative;
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*left: 0;*/
+        width: 100%;
+        color: #FFFFFF;
+        z-index: 10;
+        background-color: #FFFFFF;
         overflow: hidden;
         .info_box_bd {
             padding-top: 20px;
@@ -142,6 +160,5 @@
         -webkit-filter: blur(36px);
         filter: blur(36px);
         z-index: -1;
-
     }
 </style>

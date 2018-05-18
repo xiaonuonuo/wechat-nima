@@ -1,14 +1,21 @@
+
+<!-- 歌单列表 -->
+<!--suppress ALL -->
 <template>
-    <view class="js_wrap">
-        <songListCover></songListCover>
+    <!--<scroll-view scroll-y="true" class="scroll_wrap">-->
+        <!---->
+    <!--</scroll-view>-->
+    <view class="js_wrap _wrap {{wap_fixed ? 'wap_fixed':''}}">
+        <songListCover :songListScrollTop="songListScrollTop"></songListCover>
     </view>
-    <view class="wrap">
-        <view class="mod_wrap">
-            <musicList></musicList>
-            <songComment></songComment>
+    <view class="scroll_wrap">
+        <view class="wrap">
+            <view class="mod_wrap" id="js_mod_wrap">
+                <musicList></musicList>
+                <songComment></songComment>
+            </view>
         </view>
     </view>
-
 </template>
 <script>
     import wepy from 'wepy'
@@ -20,34 +27,127 @@
         config = {
             navigationBarTitleText: '歌单列表'
         }
+        data = {
+            songListScrollTop: '',
+            infoBoxPosition: 'relative',
+            wap_fixed: true
+        }
         components = {
             songListCover,
             musicList,
             songComment
         }
-    }
+        methods = {}
+        onLoad(options) {
+            // Do some initialize when page load.
+            // console.log('load')
+        }
+        onReady() {
+            // Do something when page ready.
+            // console.log('ready')
+        }
+        onShow() {
+            // Do something when page show.
+            // console.log('show')
+        }
+        onHide() {
+            // Do something when page hide.
+            // console.log('hide')
+        }
+        onUnload() {
+            // Do something when page close.
+            console.log('close')
+        }
+        onPullDownRefresh() {
+            // Do something when pull down.
+            console.log('down')
+        }
+        onReachBottom() {
+            // Do something when page reach bottom.
+            console.log('bottom')
+        }
+        onShareAppMessage () {
+            // return custom share data when user share.
+            console.log('share')
+        }
+        onPageScroll(e) {
+            // Do something when page scroll
+            // this.songListScrollTop = e.scrollTop
+            // this.$broadcast('passSongListData', this.songListScrollTop)
+            // console.log(e.scrollTop)
+
+        }
+}
 </script>
-<style lang="less">
-    .js_wrap {
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
+<style lang="less" scoped>
+
+    .scroll_wrap {
+        height: auto;
+    }
+    ._wrap {
+        &.wap_fixed {
+            position: absolute;
+            /*top: -315rpx;*/
+        }
         width: 100%;
+        /*transform: translateY();*/
+        /*position: absolute;*/
+        /*left: 0;*/
+        /*top: 0;*/
+        /*bottom: 0;*/
+        /*height: 39.5%;*/
         z-index: 3;
         overflow: hidden;
     }
-    .wrap {
+    /*.wrap {*/
+        /*position: absolute;*/
+        /*top: 0;*/
+        /*right: 0;*/
+        /*bottom: 0;*/
+        /*width: 100%;*/
+        /*z-index: 2;*/
+        /*padding-bottom: 0;*/
+        /*overflow: hidden;*/
+        /*.mod_wrap {*/
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*z-index: 2;*/
+            /*padding-bottom: 0;*/
+            /*overflow: hidden;*/
+            /*background: #FFFFFF;*/
+            /*padding-top: 477rpx;*/
+        /*}*/
+    /*}*/
+    .scroll_wrap {
         position: absolute;
-        left: 0;
+        /*top: 160rpx;*/
         top: 0;
+        left: 0;
+        right: 0;
         bottom: 0;
         z-index: 2;
         padding-bottom: 0;
         overflow: hidden;
-        background: #FFFFFF;
-        .mod_wrap {
-            padding-top: 477rpx;
+        touch-action: none;
+        /*去滚动条*/
+        &::-webkit-scrollbar{
+            display:none;
         }
+        .wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            padding-top: 238px;
+            padding-bottom: 50px;
+            overflow: hidden;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+    }
+
+    .wrap {
+        background: #FFFFFF;
     }
 </style>

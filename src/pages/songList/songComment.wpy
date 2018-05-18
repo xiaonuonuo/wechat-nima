@@ -52,8 +52,10 @@
 </template>
 <script>
     import wepy from 'wepy'
-    export default class songComment extends wepy.page {
-        config = {}
+
+    export default class songComment extends wepy.component {
+        config = {};
+        onLoad() {}
     }
 </script>
 <style lang="less" scoped>
@@ -74,7 +76,7 @@
             color: #000000;
         }
         .cmt_content {
-            padding-left: 0 20*30/14rpx;
+            padding-left: 20*30/14rpx;
             .comment_list_item {
                 display: flex;
                 flex-direction: row;

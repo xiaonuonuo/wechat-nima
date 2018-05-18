@@ -1,14 +1,19 @@
-<style lang="less">
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
+<style lang="scss">
+    @function oUnit($num:0,$ounit:px){
+        @return $num+$ounit
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
     page {
-        font-size: 14*30/14rpx;
+        /*height: 100%;*/
+        font-size: oUnit(14*30/14,rpx);
         font-weight: 300;
     }
 </style>
@@ -20,9 +25,10 @@ import 'wepy-async-function'
 export default class extends wepy.app {
     config = {
         pages: [
-            // 'pages/index'
+            // 'pages/index',
+            // 'pages/index/index',
             'pages/songList/songList',
-            'pages/index/index'
+
         ],
         window: {
             backgroundTextStyle: 'light',
